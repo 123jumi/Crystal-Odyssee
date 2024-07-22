@@ -1,4 +1,5 @@
-<script setup lang='ts'> 
+<script setup lang='ts'>
+import LogoHolder from './LogoHolder.vue'
 import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()
@@ -6,18 +7,15 @@ const { t } = useI18n()
 </script>
 
 <template>
-<BNavbar toggleable="xl" variant="primary" v-b-color-mode="'dark'">
-  <BNavbarToggle target="nav-collapse" />
-  <BCollapse id="nav-collapse" is-nav>
-    <BNavbarNav>
+  <BNavbar class="navbar" type="dark" variant="dark">
+    <BNavbarNav class="w-100 d-flex justify-content-between align-items-center">
       <BNavItem href="#">{{ t('message.nav.forfaits') }}</BNavItem>
-      <BAvatar size="md" src="https://picsum.photos/200/300" />
+      <LogoHolder> </LogoHolder>
       <BNavItem href="#">{{ t('message.nav.reserver') }}</BNavItem>
     </BNavbarNav>
-  </BCollapse>
-</BNavbar>
+  </BNavbar>
 </template>
 
-<style scoped>
 
+<style lang="sass" scoped>
 </style>

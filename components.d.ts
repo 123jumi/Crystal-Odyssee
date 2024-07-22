@@ -27,6 +27,7 @@ declare module 'vue' {
     ContactSection: typeof import('./src/components/ContactSection.vue')['default']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     HeroMain: typeof import('./src/components/HeroMain.vue')['default']
+    LogoHolder: typeof import('./src/components/LogoHolder.vue')['default']
     NavBar: typeof import('./src/components/NavBar.vue')['default']
     PricingSection: typeof import('./src/components/PricingSection.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']

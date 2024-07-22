@@ -6,13 +6,13 @@ const videoSize = ref({ width: window.innerWidth, height: window.innerHeight});
 const playerRef = ref<any>(null);
 const isMuted = ref(false);
 
-
 const onReady = (event: any) => {
-  playerRef.value = event.target;
+  playerRef.value = event.target; 
+  
+  console.log(playerRef.value);
   playerRef.value.getVideoEmbedCode();
   playerRef.value.playVideo();
   setInterval(() => { playerRef.value.playVideo(); }, 141.5 * 1000);
-  
 };
 
 const toggleMute = () => {
