@@ -2,19 +2,26 @@
 import { ref, onMounted, onBeforeUnmount } from 'vue';
 import YouTube from 'vue3-youtube';
 
-const videoSize = ref({ width: window.innerWidth+350, height: window.innerHeight});
+const videoSize = ref({ width: window.innerWidth, height: window.innerHeight});
 const playerRef = ref<any>(null);
+const isMuted = ref(false);
+
 
 const onReady = (event: any) => {
   playerRef.value = event.target;
   playerRef.value.getVideoEmbedCode();
   playerRef.value.playVideo();
+  setInterval(() => {
+    playerRef.value.playVideo();
+  }, 141 * 1000);
+  
 };
 
 const toggleMute = () => {
   if (playerRef.value) {
-    playerRef.value.isMuted() ? playerRef.value.unMute() : playerRef.value.mute();
-    console.log(playerRef.value);
+    playerRef.value.isMuted()
+    ? (playerRef.value.unMute(), isMuted.value = true)
+      : (playerRef.value.mute(), isMuted.value = false);
   }
 };
 
@@ -26,7 +33,7 @@ const playerVars = {
 };
 
 const updateVideoSize = () => {
-  videoSize.value = { width: window.innerWidth+300, height: window.innerHeight};
+  videoSize.value = { width: window.innerWidth, height: window.innerHeight};
 };
 
 onMounted(() => {
@@ -40,11 +47,11 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <BContainer class="hero-container d-flex align-items-center justify-content-center p-0">
+ 
     <BRow class="flex-grow-1">
       <BCol class="d-flex align-items-center justify-content-center">
         <div class="video-wrapper">
-          <div class="screen" @click="toggleMute"></div>
+         <div class="screen" :class="{ mute: isMuted, unmute: !isMuted }" @click="toggleMute"></div>
           <YouTube
           id="embed-code"
             src="https://www.youtube.com/embed/ySqSChzNv2U?playlist=ySqSChzNv2U&loop=1"
@@ -56,7 +63,21 @@ onBeforeUnmount(() => {
         </div>
       </BCol>
     </BRow>
-  </BContainer>
 </template>
 
+<style lang="sass" scoped>
+.screen 
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  z-index: 10
+ 
+.mute
+  cursor: url('src/assets/icons/mute.svg'),auto
 
+.unmute
+  cursor: url('src/assets/icons/unmute.svg'),auto
+
+  </style>
