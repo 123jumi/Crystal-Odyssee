@@ -9,9 +9,9 @@ const onReady = (event: any) => {
   event.target.playVideo();
 };
 const toggleMute = (event: any) => {
-  event.target.isMuted()
-    ? event.target.unMute()
-    :event.target.mute();
+  // event.target.isMuted()
+  //   ? event.target.unMute()
+  //   :event.target.mute();
 };
 
 const playerVars = {
