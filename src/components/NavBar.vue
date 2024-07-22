@@ -1,14 +1,16 @@
 <script setup lang='ts'> 
+import { useI18n } from 'vue-i18n'
 
+const { t } = useI18n()
 </script>
 
 <template>
 <BNavbar>
-    <BContainer><img src="" alt=""></BContainer>
-    <ul>
-        <li><a href=""></a></li>
-        <li><a href=""></a></li>
-        <li><a href=""></a></li>
+    <BContainer></BContainer>
+    <ul class>
+        <li><a href=""></a>{{ t('message.nav.forfaits') }}</li>
+        <li><img src="" alt=""></li>
+        <li><a href=""></a>{{ t('message.nav.reserver') }}</li>
     </ul>
 </BNavbar>
 </template>

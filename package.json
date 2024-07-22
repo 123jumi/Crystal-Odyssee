@@ -19,6 +19,7 @@
 		"sass": "1.77.6",
 		"unplugin-vue-components": "^0.26.0",
 		"vue": "^3.4.21",
+		"vue-i18n": "^9.13.1",
 		"vue-responsive-video-background-player": "^2.3.1",
 		"vue-router": "^4.3.0",
 		"vue3-youtube": "^0.1.9"

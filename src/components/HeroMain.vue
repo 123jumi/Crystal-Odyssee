@@ -11,9 +11,7 @@ const onReady = (event: any) => {
   playerRef.value = event.target;
   playerRef.value.getVideoEmbedCode();
   playerRef.value.playVideo();
-  setInterval(() => {
-    playerRef.value.playVideo();
-  }, 141 * 1000);
+  setInterval(() => {playerRef.value.playVideo();}, 141.5 * 1000);
   
 };
 
@@ -21,7 +19,7 @@ const toggleMute = () => {
   if (playerRef.value) {
     playerRef.value.isMuted()
     ? (playerRef.value.unMute(), isMuted.value = true)
-      : (playerRef.value.mute(), isMuted.value = false);
+    : (playerRef.value.mute(), isMuted.value = false);
   }
 };
 
