@@ -3,7 +3,7 @@ import NavBar from './components/NavBar.vue'
 </script>
 
 <template>
-  <div class="d-flex flex-column overflow-x-hidden">
+  <div class="d-flex flex-column overflow-x-hidden align-item-center w-100">
     <header>
       <nav-bar />
     </header>

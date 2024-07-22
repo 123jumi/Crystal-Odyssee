@@ -6,10 +6,15 @@ const { t } = useI18n()
 </script>
 
 <template>
-<BNavbar>
-        <BNavItem href="">{{ t('message.nav.forfaits') }}</BNavItem>
-        <BNavbarBrand><img src="" alt=""></BNavbarBrand>
-        <BNavItem href="">{{ t('message.nav.reserver') }}</BNavItem>
+<BNavbar toggleable="xl" variant="primary" v-b-color-mode="'dark'">
+  <BNavbarToggle target="nav-collapse" />
+  <BCollapse id="nav-collapse" is-nav>
+    <BNavbarNav>
+      <BNavItem href="#">{{ t('message.nav.forfaits') }}</BNavItem>
+      <BAvatar size="md" src="https://picsum.photos/200/300" />
+      <BNavItem href="#">{{ t('message.nav.reserver') }}</BNavItem>
+    </BNavbarNav>
+  </BCollapse>
 </BNavbar>
 </template>
 
