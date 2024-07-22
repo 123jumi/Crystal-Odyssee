@@ -49,7 +49,6 @@ onBeforeUnmount(() => {
             src="https://www.youtube.com/watch?v=ySqSChzNv2U"
             :vars="playerVars"
             @ready="onReady"
-            @click="toggleMute"
             :width="videoWidth"
             :height="videoHeight"
           />

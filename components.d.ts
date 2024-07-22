@@ -7,6 +7,10 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
+    BCol: typeof import('bootstrap-vue-next')['BCol']
+    BContainer: typeof import('bootstrap-vue-next')['BContainer']
+    BNavbar: typeof import('bootstrap-vue-next')['BNavbar']
+    BRow: typeof import('bootstrap-vue-next')['BRow']
     ContactSection: typeof import('./src/components/ContactSection.vue')['default']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     HeroMain: typeof import('./src/components/HeroMain.vue')['default']
