@@ -4,14 +4,13 @@ import YouTube from 'vue3-youtube';
 
 const [videoWidth,videoHeight] = [ref(window.innerWidth),ref(window.innerHeight)];
 
-
 const onReady = (event: any) => {
   event.target.playVideo();
 };
 const toggleMute = (event: any) => {
-  // event.target.isMuted()
-  //   ? event.target.unMute()
-  //   :event.target.mute();
+  event.target.isMuted()
+    ? event.target.unMute()
+    :event.target.mute();
 };
 
 const playerVars = {
@@ -21,7 +20,7 @@ const playerVars = {
   modestbranding: 1,
   showinfo: 0,
   rel: 0,
-  // playlist: ['ySqSChzNv2U', 'ySqSChzNv2U', 'ySqSChzNv2U'],
+  playlist: 'ySqSChzNv2U', 
 };
 
 const updateVideoSize = () => {
@@ -49,7 +48,6 @@ onBeforeUnmount(() => {
             src="https://www.youtube.com/watch?v=ySqSChzNv2U"
             :vars="playerVars"
             @ready="onReady"
-            @click="toggleMute"
             :width="videoWidth"
             :height="videoHeight"
           />
@@ -58,5 +56,3 @@ onBeforeUnmount(() => {
     </BRow>
   </BContainer>
 </template>
-
-
