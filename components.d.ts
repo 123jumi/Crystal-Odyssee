@@ -12,6 +12,7 @@ declare module 'vue' {
     BListGroup: typeof import('bootstrap-vue-next')['BListGroup']
     BListGroupItem: typeof import('bootstrap-vue-next')['BListGroupItem']
     BNavbar: typeof import('bootstrap-vue-next')['BNavbar']
+    BNavbarBrand: typeof import('bootstrap-vue-next')['BNavbarBrand']
     BNavItem: typeof import('bootstrap-vue-next')['BNavItem']
     BRow: typeof import('bootstrap-vue-next')['BRow']
     ContactSection: typeof import('./src/components/ContactSection.vue')['default']

@@ -7,9 +7,9 @@ const { t } = useI18n()
 
 <template>
 <BNavbar>
-        <BNavItem><a href=""></a>{{ t('message.nav.forfaits') }}</BNavItem>
-        <BNavItem><img src="" alt=""></BNavItem>
-        <BNavItem><a href=""></a>{{ t('message.nav.reserver') }}</BNavItem>
+        <BNavItem href="">{{ t('message.nav.forfaits') }}</BNavItem>
+        <BNavbarBrand><img src="" alt=""></BNavbarBrand>
+        <BNavItem href="">{{ t('message.nav.reserver') }}</BNavItem>
 </BNavbar>
 </template>
 
