@@ -16,12 +16,12 @@ const toggleMute = (event: any) => {
 
 const playerVars = {
   autoplay: 1,
-  loop: 1,
+  loop: 10,
   controls: 0,
   modestbranding: 1,
   showinfo: 0,
   rel: 0,
-  // playlist: ['ySqSChzNv2U', 'ySqSChzNv2U', 'ySqSChzNv2U'],
+  playlist: 'ySqSChzNv2U',
 };
 
 const updateVideoSize = () => {
