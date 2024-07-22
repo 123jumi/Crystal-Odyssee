@@ -8,7 +8,7 @@ const { t } = useI18n()
 
 <template>
   <BNavbar class="navbar" type="dark" variant="dark">
-    <BNavbarNav class="w-100 d-flex justify-content-between align-items-center">
+    <BNavbarNav class="w-100 d-flex justify-content-between align-items-center p-0">
       <BNavItem href="#">{{ t('message.nav.forfaits') }}</BNavItem>
       <LogoHolder> </LogoHolder>
       <BNavItem href="#">{{ t('message.nav.reserver') }}</BNavItem>

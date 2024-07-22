@@ -4,14 +4,15 @@
 
 <template>
   <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-12 col-md-10 col-lg-8 col-xl-6">
+    <BRow class="justify-content-center align-item-center">
+      <BCol class="">
         <div class="logo-wrapper">
           <img :src='"src/assets/images/logo.png"' class="logo" alt="Logo">
         </div>
-      </div>
+      </BCol>
+      </BRow>
     </div>
-  </div>
+  
 </template>
 
 <style lang="scss" scoped>
@@ -23,6 +24,7 @@
   align-items: center;
   overflow: hidden;
   border-radius: 50%; // Make the wrapper circular
+  margin: 0;
 }
 
 .logo {
@@ -30,6 +32,7 @@
   width: 100%;
   object-fit: cover;
   border-radius: 50%; // Make the logo image circular
+  margin: 0 auto;
 }
 
 @media (max-width: 992px) {
@@ -56,30 +59,30 @@
 // Specific styles for screen width between 1009px and 1042px
 @media (min-width: 1009px) and (max-width: 1042px) {
   .logo-wrapper {
-    height: 26vh;
-    width: 26vh; // Ensures it's a circle
+    height: 22vh;
+    width: 21.5vh; // Ensures it's a circle
   }
 }
 
 @media (min-width: 1009px) and (max-width: 1042px) and (orientation: landscape) {
   .logo-wrapper {
-    height: 24vh;
-    width: 24vh; // Ensures it's a circle
+    height: 22vh;
+    width: 21.5vh; // Ensures it's a circle
   }
 }
 
 // Fullscreen mode for larger screens
 @media (min-width: 1366px) {
   .logo-wrapper {
-    height: 35vh;
-    width: 35vh; // Ensures it's a circle
+    height: 26vh;
+    width: 25.5vh; // Ensures it's a circle
   }
 }
 
-@media (min-width: 1366px) and (orientation: landscape) {
+@media (min-width: 1367px) and (orientation: landscape) {
   .logo-wrapper {
-    height: 30vh;
-    width: 30vh; // Ensures it's a circle
+    height: 26vh;
+    width: 25.5vh; // Ensures it's a circle
   }
 }
 </style>
