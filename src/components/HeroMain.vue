@@ -4,35 +4,35 @@ import YouTube from 'vue3-youtube';
 
 const [videoWidth,videoHeight] = [ref(window.innerWidth),ref(window.innerHeight)];
 
+const videoSize = ref({ width: window.innerWidth, height: window.innerHeight });
+const playerRef = ref<any>(null);
+
 const onReady = (event: any) => {
+  playerRef.value = event.target;
+  event.target.getVideoEmbedCode();
   event.target.playVideo();
-  event.target.mute();
 };
 
-const toggleMute = (event: any) => {
-  event.target.isMuted()
-    ? event.target.unMute()
-    :event.target.mute();
+const toggleMute = () => {
+  if (playerRef.value) {
+    playerRef.value.isMuted() ? playerRef.value.unMute() : playerRef.value.mute();
+  }
 };
 
 const playerVars = {
-  autoplay: 1,
-  loop: 10,
   controls: 0,
   modestbranding: 1,
   showinfo: 0,
   rel: 0,
-  playlist: 'ySqSChzNv2U',
 };
 
 const updateVideoSize = () => {
-  videoWidth.value = window.innerWidth;
-  videoHeight.value = window.innerHeight;
+  videoSize.value = { width: window.innerWidth, height: window.innerHeight };
 };
 
 onMounted(() => {
   window.addEventListener('resize', updateVideoSize);
-  updateVideoSize(); 
+  updateVideoSize();
 });
 
 onBeforeUnmount(() => {
@@ -45,11 +45,12 @@ onBeforeUnmount(() => {
     <BRow class="flex-grow-1">
       <BCol class="d-flex align-items-center justify-content-center">
         <div class="video-wrapper">
-          <div class="screen"></div>
+          <div class="screen" @click="toggleMute"></div>
           <YouTube
-            src="https://www.youtube.com/watch?v=ySqSChzNv2U"
+          id="embed-code"
+            src="https://www.youtube.com/embed/VIDEO_ID?playlist=ySqSChzNv2U&loop=1"
             :vars="playerVars"
-            @ready="onReady($event)"
+            @ready="onReady"
             :width="videoWidth"
             :height="videoHeight"
           />
