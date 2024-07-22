@@ -18,13 +18,14 @@
 <style lang="scss" scoped>
 .logo-wrapper {
   height: 25vh;
-  width: 25vh; // Ensures it's a circle
+  width: 24.5vh; // Ensures it's a circle
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
   border-radius: 50%; // Make the wrapper circular
   margin: 0;
+  padding: 0;
 }
 
 .logo {
@@ -32,7 +33,8 @@
   width: 100%;
   object-fit: cover;
   border-radius: 50%; // Make the logo image circular
-  margin: 0 auto;
+  margin: 0 ;
+  
 }
 
 @media (max-width: 992px) {

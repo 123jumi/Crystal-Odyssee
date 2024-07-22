@@ -8,8 +8,6 @@ const isMuted = ref(false);
 
 const onReady = (event: any) => {
   playerRef.value = event.target; 
-  
-  console.log(playerRef.value);
   playerRef.value.getVideoEmbedCode();
   playerRef.value.playVideo();
   setInterval(() => { playerRef.value.playVideo(); }, 141.5 * 1000);
