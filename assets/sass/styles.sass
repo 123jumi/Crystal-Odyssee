@@ -1,0 +1,77 @@
+$my-primary: #1313ff
+$my-tertiary: rgb(13,22,47)
+$my-secondary: rgb(166, 47, 24)
+$my-success: #0aa524
+$my-warning: #f7ff13
+$my-danger: #ff3e13
+$my-info: transparent
+
+
+$theme-colors: ("primary": $my-primary, "success": $my-success, "secondary": $my-secondary,"tertiary":$my-tertiary ,"warning": $my-warning, "danger": $my-danger, "info": $my-info)
+
+@import node_modules/bootstrap/scss/bootstrap
+@import 'bootstrap-vue-next/dist/bootstrap-vue-next.css'
+
+.btn
+  color: white
+  cursor: pointer
+
+.btn-primary
+  background-color: map-get($theme-colors, "primary")
+
+.btn-secondary
+  background-color: map-get($theme-colors, "secondary")
+
+.btn-success
+  color: map-get($theme-colors, "success")
+  background-color: transparent
+
+.btn-danger
+  color: map-get($theme-colors, "danger")
+  background-color: transparent
+
+.navbar
+  background-color: map-get($theme-colors, "primary")
+
+.footer
+  background-color: map-get($theme-colors, "primary")
+
+.card
+  min-height: 16.5rem
+  max-height: fit-content
+ 
+.card-text
+  color: map-get($theme-colors, "primary")
+  min-height: 11rem
+  width: 20rem
+  padding-inline: 0.5rem
+
+.box
+  padding: 0.5rem
+  margin: 0.5rem
+  border: 1px solid #e0e0e0
+  width: 20.5rem
+    
+.nav-tabs .nav-link:not(.active)
+  color: var(--bs-primary)
+
+.offcanvas-header
+  padding: 0.5rem 1rem!important
+  
+.offcanvas-body
+   padding: 0.5rem 1rem !important
+
+//hero
+
+.hero-container 
+  height: 90vh
+  width: 100vw
+  background-color: #000
+  
+.video-wrapper 
+  width: 100%
+  height: 100%
+  position: relative
+
+
+
