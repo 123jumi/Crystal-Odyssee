@@ -4,10 +4,11 @@ import YouTube from 'vue3-youtube';
 
 const [videoWidth,videoHeight] = [ref(window.innerWidth),ref(window.innerHeight)];
 
-
 const onReady = (event: any) => {
   event.target.playVideo();
+  event.target.mute();
 };
+
 const toggleMute = (event: any) => {
   event.target.isMuted()
     ? event.target.unMute()
@@ -48,7 +49,7 @@ onBeforeUnmount(() => {
           <YouTube
             src="https://www.youtube.com/watch?v=ySqSChzNv2U"
             :vars="playerVars"
-            @ready="onReady"
+            @ready="onReady($event)"
             :width="videoWidth"
             :height="videoHeight"
           />
