@@ -2,20 +2,19 @@
 import { ref, onMounted, onBeforeUnmount } from 'vue';
 import YouTube from 'vue3-youtube';
 
-const [videoWidth,videoHeight] = [ref(window.innerWidth),ref(window.innerHeight)];
-
-const videoSize = ref({ width: window.innerWidth, height: window.innerHeight });
+const videoSize = ref({ width: window.innerWidth+350, height: window.innerHeight});
 const playerRef = ref<any>(null);
 
 const onReady = (event: any) => {
   playerRef.value = event.target;
-  event.target.getVideoEmbedCode();
-  event.target.playVideo();
+  playerRef.value.getVideoEmbedCode();
+  playerRef.value.playVideo();
 };
 
 const toggleMute = () => {
   if (playerRef.value) {
     playerRef.value.isMuted() ? playerRef.value.unMute() : playerRef.value.mute();
+    console.log(playerRef.value);
   }
 };
 
@@ -27,7 +26,7 @@ const playerVars = {
 };
 
 const updateVideoSize = () => {
-  videoSize.value = { width: window.innerWidth, height: window.innerHeight };
+  videoSize.value = { width: window.innerWidth+300, height: window.innerHeight};
 };
 
 onMounted(() => {
@@ -48,11 +47,11 @@ onBeforeUnmount(() => {
           <div class="screen" @click="toggleMute"></div>
           <YouTube
           id="embed-code"
-            src="https://www.youtube.com/embed/VIDEO_ID?playlist=ySqSChzNv2U&loop=1"
+            src="https://www.youtube.com/embed/ySqSChzNv2U?playlist=ySqSChzNv2U&loop=1"
             :vars="playerVars"
             @ready="onReady"
-            :width="videoWidth"
-            :height="videoHeight"
+            :width="videoSize.width"
+            :height="videoSize.height"
           />
         </div>
       </BCol>

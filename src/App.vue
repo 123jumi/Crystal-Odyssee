@@ -7,7 +7,7 @@ import NavBar from './components/NavBar.vue'
     <header>
       <nav-bar />
     </header>
-    <main class="d-flex flex-column flex-grow-1 justify-content-center align-items-center">
+    <main class="d-flex flex-column justify-content-center align-items-center">
       <router-view />
     </main>
     <footer>
