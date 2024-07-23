@@ -11,7 +11,6 @@ const onReady = (event: any) => {
   playerRef.value = event.target;
 	playerRef.value.getVideoEmbedCode();
 	playerRef.value.playVideo();
-	
 	setInterval(() => {
 		playerRef.value.playVideo();
 	}, 141 * 1000);

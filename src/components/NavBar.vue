@@ -20,7 +20,7 @@ const { t } = useI18n()
 <style lang="sass" scoped>
 .down
   margin-bottom: 2rem
-@media screen and (max-width: 730px)
+@media screen and (max-width: 756px)
   .down
     margin-bottom: 1rem
 </style>
