@@ -7,11 +7,11 @@ const { t } = useI18n()
 </script>
 
 <template>
-  <BNavbar class="navbar" type="dark" variant="dark">
+  <BNavbar class="navbar p-0" type="dark" variant="dark">
     <BNavbarNav class="w-100 d-flex justify-content-between align-items-center p-0">
-      <BNavItem href="#">{{ t('message.nav.forfaits') }}</BNavItem>
+      <BNavItem class="p-2" href="#">{{ t('message.nav.forfaits') }}</BNavItem>
       <LogoHolder> </LogoHolder>
-      <BNavItem href="#">{{ t('message.nav.reserver') }}</BNavItem>
+      <BNavItem class="p-2" href="#">{{ t('message.nav.reserver') }}</BNavItem>
     </BNavbarNav>
   </BNavbar>
 </template>

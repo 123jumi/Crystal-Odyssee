@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted, onBeforeUnmount } from 'vue';
+import { ref, onMounted, onBeforeUnmount, watchEffect } from 'vue';
 import YouTube from 'vue3-youtube';
 
 const videoSize = ref({ width: window.innerWidth, height: window.innerHeight});
@@ -10,7 +10,9 @@ const onReady = (event: any) => {
   playerRef.value = event.target; 
   playerRef.value.getVideoEmbedCode();
   playerRef.value.playVideo();
-  setInterval(() => { playerRef.value.playVideo(); }, 141.5 * 1000);
+  setInterval(() => { playerRef.value.playVideo(); }, 141 * 1000);
+
+
 };
 
 const toggleMute = () => {
@@ -29,17 +31,36 @@ const playerVars = {
 };
 
 const updateVideoSize = () => {
-  videoSize.value = { width: window.innerWidth, height: window.innerHeight};
+  const aspectRatio = 16 / 9;
+  const windowWidth = window.innerWidth;
+  const windowHeight = window.innerHeight;
+
+  if (windowWidth / windowHeight > aspectRatio) {
+    videoSize.value = {
+      width: windowHeight * aspectRatio,
+      height: windowHeight,
+    };
+  } else {
+    videoSize.value = {
+      width: windowWidth,
+      height: windowWidth / aspectRatio,
+    };
+  }
 };
+
 
 onMounted(() => {
   window.addEventListener('resize', updateVideoSize);
   updateVideoSize();
 });
 
-onBeforeUnmount(() => {
-  window.removeEventListener('resize', updateVideoSize);
-});
+// onBeforeUnmount(() => {
+//   window.removeEventListener('resize', updateVideoSize);
+// });
+
+// watchEffect(() => {
+//  updateVideoSize();
+// });
 </script>
 
 <template>
@@ -62,6 +83,12 @@ onBeforeUnmount(() => {
 </template>
 
 <style lang="sass" scoped>
+.video-wrapper 
+  width: fit-content
+  height: fit-content
+  position: relative
+
+
 .screen 
   position: absolute
   top: 0
