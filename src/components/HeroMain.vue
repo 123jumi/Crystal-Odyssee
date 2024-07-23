@@ -7,10 +7,10 @@ const playerRef = ref<any>(null);
 const isMuted = ref(false);
 
 const onReady = (event: any) => {
-	playerRef.value = event.target;
-  playerRef.value.getVideoEmbedCode();
-  
-  playerRef.value.playVideo();
+
+  playerRef.value = event.target;
+	playerRef.value.getVideoEmbedCode();
+	playerRef.value.playVideo();
 	setInterval(() => {
 		playerRef.value.playVideo();
 	}, 141 * 1000);
@@ -67,19 +67,21 @@ watchEffect(() => {
 
 <template>
 	<BRow class="flex-grow-1">
-		<BCol class="d-flex align-items-center justify-content-center">
+		<BCol class="margin-top d-flex align-items-center justify-content-center">
 			<div class="video-wrapper">
 				<div
 					class="screen"
 					:class="{ mute: isMuted, unmute: !isMuted }"
-					@click="toggleMute"></div>
+					@click="toggleMute">
+				</div>
 				<YouTube
 					id="embed-code"
 					src="https://www.youtube.com/embed/ySqSChzNv2U?playlist=ySqSChzNv2U&loop=1"
 					:vars="playerVars"
 					@ready="onReady"
 					:width="videoSize.width"
-					:height="videoSize.height" />
+					:height="videoSize.height"
+					 />
 			</div>
 		</BCol>
 	</BRow>
@@ -87,10 +89,21 @@ watchEffect(() => {
 
 <style lang="sass" scoped>
 .video-wrapper
-  width: fit-content
+  width: 100%
   height: fit-content
+  padding-bottom: 40% 
   position: relative
+  display: flex
+  justify-content: center
+  align-items: center
+  overflow: hidden
 
+.video-wrapper iframe
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
 
 .screen
   position: absolute
@@ -98,11 +111,24 @@ watchEffect(() => {
   left: 0
   width: 100%
   height: 100%
-  z-index: 10
+  z-index: 3
 
+.margin-top
+  margin-top: 15vh
 .mute
   cursor: url('src/assets/icons/mute.svg'),auto
 
 .unmute
   cursor: url('src/assets/icons/unmute.svg'),auto
+
+@media screen and (max-width: 730px)
+  .margin-top
+    margin-top: 10vh
+  .video-wrapper
+    height: 20vh
+    
+  #embed-code
+   width: 100%
+   height: auto
+   padding-top: 11vh 
 </style>
