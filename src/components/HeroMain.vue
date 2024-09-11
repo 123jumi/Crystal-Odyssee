@@ -7,7 +7,6 @@ const playerRef = ref<any>(null);
 const isMuted = ref(false);
 
 const onReady = (event: any) => {
-
   playerRef.value = event.target;
 	playerRef.value.getVideoEmbedCode();
 	playerRef.value.playVideo();
@@ -17,6 +16,7 @@ const onReady = (event: any) => {
 };
 
 const toggleMute = () => {
+
 	if (playerRef.value) {
 		playerRef.value.isMuted()
 			? (playerRef.value.unMute(), (isMuted.value = true))
@@ -34,7 +34,6 @@ const playerVars = {
 const updateVideoSize = () => {
 	const aspectRatio = 16 / 9;
 	const [windowWidth, windowHeight] = [window.innerWidth, window.innerHeight];
-
 	if (videoSize.value.width !== windowWidth || videoSize.value.height !== windowHeight) {
 		windowWidth / windowHeight > aspectRatio
 			? (videoSize.value = {
@@ -97,7 +96,6 @@ watchEffect(() => {
   justify-content: center
   align-items: center
   overflow: hidden
-
 .video-wrapper iframe
   position: absolute
   top: 0
